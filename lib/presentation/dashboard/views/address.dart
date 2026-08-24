@@ -361,7 +361,7 @@ class _AddressFieldRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      minHeight: 86,
+      constraints: const BoxConstraints(minHeight: 86),
       padding: const EdgeInsets.fromLTRB(16, 12, 14, 12),
       decoration: BoxDecoration(
         color: Colors.white,
