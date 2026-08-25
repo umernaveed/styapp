@@ -31,7 +31,9 @@ class DashboardMainScreen extends GetView<DashboardTabBarController> {
           SafeArea(
             bottom: false,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(
+                horizontal: context.width < 380 ? 16 : 20,
+              ),
               child: Column(
                 children: [
                   const SizedBox(height: 14),
@@ -184,7 +186,7 @@ class _UserSummaryCard extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 18),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.98),
         borderRadius: BorderRadius.circular(22),
@@ -199,8 +201,8 @@ class _UserSummaryCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 72,
-            height: 72,
+            width: 68,
+            height: 68,
             alignment: Alignment.center,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
@@ -223,7 +225,7 @@ class _UserSummaryCard extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 18),
+          const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -234,7 +236,7 @@ class _UserSummaryCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: Color(0xFF020A24),
-                    fontSize: 21,
+                    fontSize: 19,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w700,
                     height: 1.15,
@@ -250,7 +252,7 @@ class _UserSummaryCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: Color(0xFF27304A),
-                          fontSize: 15.5,
+                          fontSize: 13.5,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                         ),
@@ -267,9 +269,9 @@ class _UserSummaryCard extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 14),
+          const SizedBox(width: 8),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
             decoration: BoxDecoration(
               color: const Color(0xFFFFFBF2),
               borderRadius: BorderRadius.circular(30),
@@ -284,23 +286,23 @@ class _UserSummaryCard extends StatelessWidget {
                 Icon(
                   Icons.star_rounded,
                   color: Color(0xFFFFAE00),
-                  size: 22,
+                  size: 19,
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: 6),
                 Text(
                   'Gold Member',
                   style: TextStyle(
                     color: Color(0xFFE99A00),
-                    fontSize: 14,
+                    fontSize: 12,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(width: 5),
+                SizedBox(width: 4),
                 Icon(
                   Icons.arrow_forward_ios_rounded,
                   color: Color(0xFFE99A00),
-                  size: 14,
+                  size: 12,
                 ),
               ],
             ),
@@ -352,7 +354,7 @@ class _DashboardSegmentedTabs extends StatelessWidget {
             index: 0,
           ),
         ),
-        const SizedBox(width: 12),
+        const SizedBox(width: 10),
         Expanded(
           child: _SegmentedTab(
             icon: Icons.inventory_2_outlined,
@@ -360,7 +362,7 @@ class _DashboardSegmentedTabs extends StatelessWidget {
             index: 1,
           ),
         ),
-        const SizedBox(width: 12),
+        const SizedBox(width: 10),
         Expanded(
           child: _SegmentedTab(
             icon: Icons.location_on_outlined,
@@ -435,9 +437,9 @@ class _SegmentedTab extends GetView<DashboardTabBarController> {
                         color: selected
                             ? selectedForeground
                             : const Color(0xFF020A24),
-                        size: 29,
+                        size: 24,
                       ),
-                      const SizedBox(width: 10),
+                      const SizedBox(width: 5),
                       Flexible(
                         child: Text(
                           title,
@@ -447,7 +449,7 @@ class _SegmentedTab extends GetView<DashboardTabBarController> {
                             color: selected
                                 ? selectedForeground
                                 : const Color(0xFF020A24),
-                            fontSize: 16,
+                            fontSize: 13,
                             fontFamily: 'Poppins',
                             fontWeight:
                                 selected ? FontWeight.w700 : FontWeight.w500,

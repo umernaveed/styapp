@@ -120,8 +120,10 @@ class _DashboardMetricCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final compact = context.width < 380;
+
     return Container(
-      height: 154,
+      height: compact ? 142 : 154,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.98),
@@ -151,15 +153,15 @@ class _DashboardMetricCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 12,
-            top: 14,
+            right: compact ? 10 : 12,
+            top: compact ? 12 : 14,
             child: _DottedAccent(color: const Color(0xFFE7ECF5)),
           ),
           Positioned(
-            right: 14,
+            right: compact ? -14 : 14,
             bottom: 0,
             child: CustomPaint(
-              size: const Size(190, 128),
+              size: Size(compact ? 150 : 190, compact ? 110 : 128),
               painter: _MetricIllustrationPainter(
                 color: color,
                 illustration: illustration,
@@ -167,23 +169,28 @@ class _DashboardMetricCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(32, 22, 26, 22),
+            padding: EdgeInsets.fromLTRB(
+              compact ? 26 : 32,
+              compact ? 20 : 22,
+              compact ? 18 : 26,
+              compact ? 20 : 22,
+            ),
             child: Row(
               children: [
                 Container(
-                  width: 90,
-                  height: 90,
+                  width: compact ? 80 : 90,
+                  height: compact ? 80 : 90,
                   decoration: BoxDecoration(
                     color: color.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(compact ? 18 : 20),
                   ),
                   child: Icon(
                     icon,
                     color: color,
-                    size: 54,
+                    size: compact ? 46 : 54,
                   ),
                 ),
-                const SizedBox(width: 28),
+                SizedBox(width: compact ? 20 : 28),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,34 +204,36 @@ class _DashboardMetricCard extends StatelessWidget {
                           maxLines: 1,
                           style: TextStyle(
                             color: color,
-                            fontSize: value.length > 8 ? 29 : 40,
+                            fontSize: value.length > 8
+                                ? (compact ? 25 : 29)
+                                : (compact ? 34 : 40),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w700,
                             height: 1,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 14),
+                      SizedBox(height: compact ? 10 : 14),
                       Text(
                         eyebrow,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: Color(0xFF27304A),
-                          fontSize: 16,
+                          fontSize: compact ? 14.5 : 16,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           height: 1.2,
                         ),
                       ),
-                      const SizedBox(height: 6),
+                      const SizedBox(height: 5),
                       Text(
                         title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: color,
-                          fontSize: 17,
+                          fontSize: compact ? 15.5 : 17,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w700,
                           height: 1.1,

@@ -47,7 +47,7 @@ class BottomNavScreen extends GetView<BottomNavController> {
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 14),
           child: Container(
             height: 82,
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.98),
               borderRadius: BorderRadius.circular(18),
@@ -126,8 +126,8 @@ class _BottomNavItem extends StatelessWidget {
           children: [
             AnimatedContainer(
               duration: const Duration(milliseconds: 180),
-              width: 44,
-              height: 38,
+              width: 42,
+              height: 36,
               decoration: BoxDecoration(
                 color: selected ? const Color(0xFF078E31) : Colors.transparent,
                 borderRadius: BorderRadius.circular(12),
@@ -135,23 +135,29 @@ class _BottomNavItem extends StatelessWidget {
               child: Icon(
                 icon,
                 color: selected ? Colors.white : const Color(0xFF020A24),
-                size: selected ? 29 : 28,
+                size: selected ? 28 : 27,
               ),
             ),
             const SizedBox(height: 5),
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                label,
-                maxLines: 1,
-                style: TextStyle(
-                  color: selected
-                      ? const Color(0xFF078E31)
-                      : const Color(0xFF020A24),
-                  fontSize: 12,
-                  fontFamily: 'Poppins',
-                  fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
-                  height: 1.1,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2),
+              child: SizedBox(
+                width: double.infinity,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    style: TextStyle(
+                      color: selected
+                          ? const Color(0xFF078E31)
+                          : const Color(0xFF020A24),
+                      fontSize: selected ? 11 : 10.5,
+                      fontFamily: 'Poppins',
+                      fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+                      height: 1.1,
+                    ),
+                  ),
                 ),
               ),
             ),
