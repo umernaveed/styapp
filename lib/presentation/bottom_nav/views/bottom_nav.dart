@@ -152,7 +152,7 @@ class _BottomNavItem extends StatelessWidget {
                       color: selected
                           ? const Color(0xFF078E31)
                           : const Color(0xFF020A24),
-                      fontSize: selected ? 11 : 10.5,
+                      fontSize: 12,
                       fontFamily: 'Poppins',
                       fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
                       height: 1.1,

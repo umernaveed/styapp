@@ -123,7 +123,7 @@ class _DashboardMetricCard extends StatelessWidget {
     final compact = context.width < 380;
 
     return Container(
-      height: compact ? 142 : 154,
+      height: 154,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.98),
@@ -204,9 +204,7 @@ class _DashboardMetricCard extends StatelessWidget {
                           maxLines: 1,
                           style: TextStyle(
                             color: color,
-                            fontSize: value.length > 8
-                                ? (compact ? 25 : 29)
-                                : (compact ? 34 : 40),
+                            fontSize: value.length > 8 ? 29 : 40,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w700,
                             height: 1,
@@ -218,9 +216,9 @@ class _DashboardMetricCard extends StatelessWidget {
                         eyebrow,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Color(0xFF27304A),
-                          fontSize: compact ? 14.5 : 16,
+                          fontSize: 16,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           height: 1.2,
@@ -233,7 +231,7 @@ class _DashboardMetricCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: color,
-                          fontSize: compact ? 15.5 : 17,
+                          fontSize: 17,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w700,
                           height: 1.1,
