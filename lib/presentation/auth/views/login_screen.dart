@@ -268,7 +268,7 @@ class _LoginInputField extends StatelessWidget {
             color: const Color(0xFF030A28),
             fontSize: 15.5,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
             height: 1.2,
           ),
         ),
@@ -558,6 +558,25 @@ class _LoginMockupBackgroundPainter extends CustomPainter {
       darkPath,
       Paint()..color = const Color(0xFF006C39).withOpacity(0.35),
     );
+
+    final goldRim = Path()
+      ..moveTo(size.width * 0.66, 0)
+      ..cubicTo(
+        size.width * 0.82,
+        size.height * 0.015,
+        size.width * 0.91,
+        size.height * 0.08,
+        size.width,
+        size.height * 0.185,
+      );
+    canvas.drawPath(
+      goldRim,
+      Paint()
+        ..color = const Color(0xFFFFE873)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 3.5
+        ..strokeCap = StrokeCap.round,
+    );
   }
 
   void _drawBottomFlagSweep(Canvas canvas, Size size) {
@@ -654,10 +673,29 @@ class _LoginMockupBackgroundPainter extends CustomPainter {
       deepBluePath,
       Paint()..color = const Color(0xFF003EB8).withOpacity(0.45),
     );
+
+    final goldRim = Path()
+      ..moveTo(0, size.height * 0.85)
+      ..cubicTo(
+        size.width * 0.22,
+        size.height * 0.98,
+        size.width * 0.43,
+        size.height,
+        size.width * 0.64,
+        size.height * 0.94,
+      );
+    canvas.drawPath(
+      goldRim,
+      Paint()
+        ..color = const Color(0xFFFFE873)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 3.5
+        ..strokeCap = StrokeCap.round,
+    );
   }
 
   void _drawDotPattern(Canvas canvas, Size size) {
-    final dotPaint = Paint()..color = Colors.white.withOpacity(0.25);
+    final dotPaint = Paint()..color = Colors.white.withOpacity(0.55);
     final startX = size.width * 0.84;
     final startY = size.height * 0.035;
 
